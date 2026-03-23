@@ -3,172 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Collection - Authentication</title>
+    <title>Authentication | Personal Collection</title>
     <style>
         :root {
-            --mws-gold: #c5a059; /* オリジナルの金色のイメージ */
-            --bg-dark: #0a0a0a;
-            --card-bg: #1a1a1a;
-            --text-main: #ffffff;
-            --text-sub: #a0a0a0;
+            --mws-gold: #c4a457;
+            --mws-bg: #000000;
+            --mws-card: #111111;
         }
-
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
             margin: 0;
-            padding: 0;
+            background-color: var(--mws-bg);
+            color: #fff;
+            font-family: "Geograph", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 構造の再現用クラス */
+        .f-container { width: 100%; max-width: 450px; margin: 0 auto; padding: 16px; }
+        .f-header { display: flex; justify-content: center; padding: 24px 0; }
+        .f-card { background: var(--mws-card); border-radius: 16px; overflow: hidden; margin-bottom: 20px; }
+        
+        /* 画像エリア */
+        .f-image-wrapper { position: relative; width: 100%; aspect-ratio: 3/4; background: #1a1a1a; }
+        .f-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ステータスバッジ (Verified) */
+        .f-verified-badge {
             display: flex;
-            flex-direction: column;
             align-items: center;
-        }
-
-        /* ヘッダー・ロゴエリア */
-        header {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-
-        .custom-logo {
-            height: 40px; /* 自作ロゴに置き換え */
-        }
-
-        /* メインコンテナ */
-        .container {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        /* ヒーロー画像 (ユニフォーム) */
-        .hero-section {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .hero-section img {
-            width: 100%;
-            display: block;
-        }
-
-        /* 鑑定ステータスバッジ */
-        .status-badge {
-            background-color: rgba(197, 160, 89, 0.1);
+            justify-content: center;
+            gap: 8px;
+            background: rgba(196, 164, 87, 0.15);
             border: 1px solid var(--mws-gold);
             color: var(--mws-gold);
-            text-align: center;
             padding: 12px;
+            margin: 16px;
             border-radius: 8px;
-            margin-bottom: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
             text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.05em;
         }
 
-        /* 情報セクション */
-        .info-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .info-row {
+        /* 情報リスト */
+        .f-details-list { padding: 0 16px 16px; }
+        .f-detail-item {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #333;
+            padding: 16px 0;
+            border-bottom: 1px solid #222;
         }
+        .f-detail-item:last-child { border-bottom: none; }
+        .f-label { color: #888; font-size: 12px; text-transform: uppercase; }
+        .f-value { font-size: 14px; font-weight: 500; text-align: right; }
 
-        .info-row:last-child {
-            border-bottom: none;
-        }
-
-        .label {
-            color: var(--text-sub);
-            font-size: 0.9rem;
-        }
-
-        .value {
-            font-weight: 500;
-        }
-
-        /* 証明書番号セクション */
-        .cert-number {
+        /* フッターの証明ID */
+        .f-cert-footer {
             text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px dashed #444;
-            border-radius: 8px;
+            padding: 32px 16px;
+            color: #555;
         }
-
-        .cert-id {
-            font-family: monospace;
-            font-size: 1.2rem;
-            color: var(--mws-gold);
+        .f-cert-id {
             display: block;
             margin-top: 8px;
+            font-family: monospace;
+            color: var(--mws-gold);
+            font-size: 16px;
         }
 
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            color: var(--text-sub);
-            font-size: 0.8rem;
-            text-align: center;
-        }
+        /* 実際のMWSにあるグラデーション等の装飾 */
+        .f-gold-text { color: var(--mws-gold); }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="your-logo.png" alt="My Collection" class="custom-logo">
+<div class="f-container">
+    <header class="f-header">
+        <img src="your-custom-logo.png" alt="Logo" style="height: 30px;">
     </header>
 
-    <div class="container">
-        <div class="hero-section">
-            <img src="jersey-main.jpg" alt="Match Worn Jersey">
+    <main>
+        <div class="f-card">
+            <div class="f-image-wrapper">
+                <img src="jersey-photo.jpg" alt="Item Image">
+            </div>
+
+            <div class="f-verified-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-2 14.5l-3.5-3.5 1.41-1.41L10 13.67l6.09-6.09 1.41 1.41L10 16.5z"/>
+                </svg>
+                Verified Authenticity
+            </div>
+
+            <div class="f-details-list">
+                <div class="f-detail-item">
+                    <div class="f-label">Match Worn</div>
+                    <div class="f-value">Yes</div>
+                </div>
+                <div class="f-detail-item">
+                    <div class="f-label">Player</div>
+                    <div class="f-value">VIRGIL VAN DIJK</div>
+                </div>
+                <div class="f-detail-item">
+                    <div class="f-label">Match</div>
+                    <div class="f-value">LIVERPOOL VS ARSENAL</div>
+                </div>
+                <div class="f-detail-item">
+                    <div class="f-label">Competition</div>
+                    <div class="f-value">PREMIER LEAGUE</div>
+                </div>
+                <div class="f-detail-item">
+                    <div class="f-label">Season</div>
+                    <div class="f-value">2023/2024</div>
+                </div>
+            </div>
         </div>
 
-        <div class="status-badge">
-            Authenticity Verified
+        <div class="f-cert-footer">
+            <div class="f-label">Certificate of Authenticity</div>
+            <span class="f-cert-id">3A1F16ED-2802-4F05-CFD7-E39C49E8D2B4</span>
         </div>
-
-        <div class="info-card">
-            <div class="info-row">
-                <span class="label">PLAYER</span>
-                <span class="value">VIRGIL VAN DIJK</span>
-            </div>
-            <div class="info-row">
-                <span class="label">MATCH</span>
-                <span class="value">Liverpool vs Arsenal</span>
-            </div>
-            <div class="info-row">
-                <span class="label">DATE</span>
-                <span class="value">2023/24 Season</span>
-            </div>
-            <div class="info-row">
-                <span class="label">TYPE</span>
-                <span class="value">Match Worn & Signed</span>
-            </div>
-        </div>
-
-        <div class="cert-number">
-            <span class="label">CERTIFICATE ID</span>
-            <span class="cert-id">3A1F16ED-2802-4F05-CFD7-E39C49E8D2B4</span>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2026 Personal Collection Archive. All Rights Reserved.
-    </footer>
+    </main>
+</div>
 
 </body>
 </html>
