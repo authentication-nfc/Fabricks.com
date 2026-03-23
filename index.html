@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Collection - Authentication</title>
+    <style>
+        :root {
+            --mws-gold: #c5a059; /* オリジナルの金色のイメージ */
+            --bg-dark: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ヘッダー・ロゴエリア */
+        header {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .custom-logo {
+            height: 40px; /* 自作ロゴに置き換え */
+        }
+
+        /* メインコンテナ */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* ヒーロー画像 (ユニフォーム) */
+        .hero-section {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-section img {
+            width: 100%;
+            display: block;
+        }
+
+        /* 鑑定ステータスバッジ */
+        .status-badge {
+            background-color: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--mws-gold);
+            color: var(--mws-gold);
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* 情報セクション */
+        .info-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .value {
+            font-weight: 500;
+        }
+
+        /* 証明書番号セクション */
+        .cert-number {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px dashed #444;
+            border-radius: 8px;
+        }
+
+        .cert-id {
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: var(--mws-gold);
+            display: block;
+            margin-top: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-sub);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="your-logo.png" alt="My Collection" class="custom-logo">
+    </header>
+
+    <div class="container">
+        <div class="hero-section">
+            <img src="jersey-main.jpg" alt="Match Worn Jersey">
+        </div>
+
+        <div class="status-badge">
+            Authenticity Verified
+        </div>
+
+        <div class="info-card">
+            <div class="info-row">
+                <span class="label">PLAYER</span>
+                <span class="value">VIRGIL VAN DIJK</span>
+            </div>
+            <div class="info-row">
+                <span class="label">MATCH</span>
+                <span class="value">Liverpool vs Arsenal</span>
+            </div>
+            <div class="info-row">
+                <span class="label">DATE</span>
+                <span class="value">2023/24 Season</span>
+            </div>
+            <div class="info-row">
+                <span class="label">TYPE</span>
+                <span class="value">Match Worn & Signed</span>
+            </div>
+        </div>
+
+        <div class="cert-number">
+            <span class="label">CERTIFICATE ID</span>
+            <span class="cert-id">3A1F16ED-2802-4F05-CFD7-E39C49E8D2B4</span>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Personal Collection Archive. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
